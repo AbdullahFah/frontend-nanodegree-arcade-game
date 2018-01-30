@@ -2,12 +2,10 @@
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    var obj = Object.create(Enemy.prototype);
-    obj.sprite = 'images/enemy-bug.png';
-    obj.x = x;
-    obj.y = y;
-    obj.speed = speed;
-    return obj;
+    this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -44,11 +42,9 @@ Enemy.prototype.render = function() {
 
 //Player object
 var Player = function() {
-    var obj = Object.create(Player.prototype);
-    obj.sprite = 'images/char-boy.png';
-    obj.x = 200;
-    obj.y = 385;
-    return obj;
+    this.sprite = 'images/char-boy.png';
+    this.x = 200;
+    this.y = 385;
 };
 Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
@@ -77,13 +73,13 @@ Player.prototype.handleInput = function(keyCode) {
             if (this.x == 400) {
                 break;
             }
-            this.x += 100
+            this.x += 100;
             break;
         case "left":
-            if (this.x == 0) {
+            if (this.x === 0) {
                 break;
             }
-            this.x -= 100
+            this.x -= 100;
             break;
         default:
             break;
@@ -98,18 +94,18 @@ Player.prototype.resetPlayer = function() {
 
 
 //Enemy objects
-var enemy11 = Enemy(-100,60,200);
-var enemy12 = Enemy(-400,60,700);
-var enemy13 = Enemy(-900,60,330);
-var enemy21 = Enemy(-100,140,550);
-var enemy22 = Enemy(-600,140,100);
-var enemy23 = Enemy(-600,140,300);
-var enemy31 = Enemy(-100,220,300);
-var enemy32 = Enemy(-400,220,150);
-var enemy33 = Enemy(-600,220,500);
+var enemy11 = new Enemy(-100,60,200);
+var enemy12 = new Enemy(-400,60,700);
+var enemy13 = new Enemy(-900,60,330);
+var enemy21 = new Enemy(-100,140,550);
+var enemy22 = new Enemy(-600,140,100);
+var enemy23 = new Enemy(-600,140,300);
+var enemy31 = new Enemy(-100,220,300);
+var enemy32 = new Enemy(-400,220,150);
+var enemy33 = new Enemy(-600,220,500);
 var allEnemies = [enemy11, enemy12, enemy13, enemy21, enemy22, enemy23, enemy31, enemy32, enemy33];
 //Player object
-var player = Player();
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
